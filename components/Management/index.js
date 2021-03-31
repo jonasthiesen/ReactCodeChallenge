@@ -19,26 +19,31 @@ const Management = ({ relations }) => {
   ])
   const keys = Object.keys(managementData[0])
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
+    <table className="min-w-full divide-y divide-gray-200">
+      <thead className="text-left">
+        <tr>
+          {keys.map((key) => (
+            <th
+              key={`only keys ${key}`}
+              className="py-2 text-left text-xs font-bold uppercase tracking-wider"
+            >
+              {key}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody className="divide-y divide-gray-200">
+        {managementData.map((data, i) => (
+          <tr key={i}>
             {keys.map((key) => (
-              <th key={`only keys ${key}`}>{key}</th>
+              <td key={key} className="py-2">
+                {data[key]}
+              </td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {managementData.map((data, i) => (
-            <tr key={i}>
-              {keys.map((key) => (
-                <th key={key}>{data[key]}</th>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   )
 }
 

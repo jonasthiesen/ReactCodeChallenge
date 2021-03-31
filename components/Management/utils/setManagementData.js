@@ -15,6 +15,16 @@ const stripFunctions = (array, roles) => {
   }))
 }
 
+function seniority(date) {
+  const months = monthDiff(date)
+  if (months < 12) {
+    return `${months} months`
+  } else {
+    const years = Math.round(months / 12)
+    return `${years} years`
+  }
+}
+
 function monthDiff(d1, d2 = new Date()) {
   let months
   months = (d2.getFullYear() - d1.getFullYear()) * 12
@@ -54,13 +64,14 @@ export const setManagementData = (managementRoles, data) => {
           from: func?.valid_from ? func?.valid_from : "-",
           seniority: func?.valid_from ? (
             <div>
-              <div>{monthDiff(new Date(func?.valid_from))} months</div>
+              <div>{seniority(new Date(func?.valid_from))}</div>
               <div
                 style={{
                   background: handleProgressBar(func?.valid_from),
                   border: "1px solid black",
-                  borderRadius: "25rem",
+                  borderRadius: 5,
                   height: "0.8rem",
+                  marginRight: 10,
                 }}
               ></div>
             </div>
