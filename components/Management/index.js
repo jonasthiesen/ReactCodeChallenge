@@ -17,7 +17,7 @@ const Management = ({ relations }) => {
     ...management,
     ...boardOfDirectors,
   ])
-  const keys = Object.keys(managementData[0])
+  const keys = Object.keys(managementData?.[0] ?? {})
   return (
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="text-left">
