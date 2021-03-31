@@ -18,6 +18,15 @@ const Management = ({ relations }) => {
     ...boardOfDirectors,
   ])
   const keys = Object.keys(managementData?.[0] ?? {})
+
+  if (keys.length === 0) {
+    return (
+      <div className="p-4 rounded-xl border border-dashed border-gray-500">
+        There are no relations to this company.
+      </div>
+    )
+  }
+
   return (
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="text-left">
