@@ -89,7 +89,7 @@ export default function Company() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-8 mx-8 my-8 max-w-7xl md:mx-auto">
+      <div className="flex flex-col space-y-8 mx-8 my-8 max-w-7xl xl:mx-auto">
         <div>
           <h3 className="text-2xl font-medium mb-4">Highlights</h3>
           <div className="flex flex-col space-y-2">
